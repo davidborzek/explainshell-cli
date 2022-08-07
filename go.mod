@@ -1,4 +1,4 @@
-module github.com/davidborzek/explain
+module github.com/davidborzek/explainshell-cli
 
 go 1.17
 
