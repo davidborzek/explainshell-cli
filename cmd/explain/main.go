@@ -26,6 +26,13 @@ func explain(cmd string) {
 		os.Exit(1)
 	}
 
+	doc.Find("h4").Each(func(_ int, s *goquery.Selection) {
+		if s.Text() == "missing man page" {
+			fmt.Printf("No man page found for %s.\n", os.Args[1])
+			os.Exit(0)
+		}
+	})
+
 	delimiter := strings.Repeat("_", 50)
 	doc.Find(".help-box").Each(func(_ int, s *goquery.Selection) {
 		fmt.Printf("%s\n%s\n\n", s.Text(), delimiter)
